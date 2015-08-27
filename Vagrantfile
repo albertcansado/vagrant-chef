@@ -57,6 +57,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = "chef/ubuntu-14.04"
   config.vm.network "private_network", ip: "192.168.13.37"
+  config.vm.network "forwarded_port", guest: 6379, host: 6379 # redis port forwading
   config.vm.synced_folder ".", "/vagrant"
 
   config.vm.provider "virtualbox" do |v, override|
